@@ -1,6 +1,6 @@
 # Follow Changes of Forked/Upstream Repository.
 #
-# This workflow rebase-marge changes from upstream's master to origin's master. 
+# This workflow rebase-marge changes from upstream's main to origin's main. 
 # - Ref:
 #   - https://stackoverflow.com/a/61574295/12102603 by N1ngu @ StackOverflow (EN)
 #   - https://qiita.com/KEINOS/items/3bcaa6cea853f6b63475 by KEINOS @ Qiita (JA)
@@ -45,7 +45,7 @@ jobs:
           : # git rebase をデフォルトに設定
           git config --global pull.rebase merges
 
-          : # "git checkout master" は不要です。デフォルトで設定されます。
+          : # "git checkout main" は不要です。デフォルトで設定されます。
           : # しかし下記の設定は重要です。過去のコミットが取得されないと、コミット歴に不統合が
           : # 発生した旨のエラーが出ます。
           git pull --unshallow
@@ -56,8 +56,8 @@ jobs:
           : # upstream のブランチをローカルに取得
           git fetch upstream
           
-          : # marster ブランチの変更をマージし、clone 元の master に push
+          : # marster ブランチの変更をマージし、clone 元の main に push
           : # ブランチ名を main などに変更していたり、別のブランチにしている場合は注意
-          git checkout master
-          git merge --no-edit upstream/master
-          git push origin master
+          git checkout main
+          git merge --no-edit upstream/main
+          git push origin main
